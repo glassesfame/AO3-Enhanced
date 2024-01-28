@@ -19,7 +19,7 @@
   },
   "content_scripts": [
     {
-    "matches": ["https://archiveofourown.org/users/*"],
+    "matches": ["https://archiveofourown.org/users/*","https://archiveofourown.org/bookmarks*"],
     "js": ["content-script.js"]
     },
     {
