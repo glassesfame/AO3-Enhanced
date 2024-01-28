@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AO3 Enhanced",
+  "description": "Extension for AO3",
+  "version": "1.0",
+  "icons": {
+    "16": "ao3enhanced.png",
+    "48": "ao3enhanced.png",
+    "128": "ao3enhanced.png"
+  },
+  "action" : {
+    "default_icon" : {
+      "16": "ao3enhanced.png",
+      "48": "ao3enhanced.png",
+      "128": "ao3enhanced.png"
+    },
+    "default_title": "A03 Enhanced",
+    "default_popup": "ao3enhanced.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://archiveofourown.org/users/*"],
+    "js": ["content-script.js"]
+  }]
+}

@@ -1,0 +1,13 @@
+body {
+    width: 250px;
+    height: 300px;
+}
+
+h1 {
+    color: #990000;
+}
+
+h2 {
+    color: white;
+    background-color: #990000;
+}
