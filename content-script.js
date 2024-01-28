@@ -67,37 +67,25 @@ const dd = document.createElement("dd");
 dd.setAttribute( "work_complete","expandable")
 dd.appendChild(ul);
 
-const submit = document.createElement("button");
-submit.id = "sub";
-submit.innerText = "Sort for Completion";
-submit.setAttribute(onclick, function(){
-    console.log("wow");
-})
-dd.appendChild(submit);
-console.log(document.getElementById('sub'));
-/*
-document.getElementById("sub").onclick = function(){
-    console.log("hello");
-    if (document.getElementById(COMP_ID[1]).checked = "checked")
-        return bookmarkEffect(0);
-    else if (document.getElementById(COMP_ID[2]).checked = "checked"){
-        console.log("hey");
-        return bookmarkEffect(1);
-    }
-}
-*/
+const filter = document.createElement("button"); 
+filter.id = "filter";
+filter.innerText = "Filter for Completion";
+filter.type = "button";
 
 dl.appendChild(dd);
+dl.appendChild(filter);
 
-//const submit = document.getElementsByClassName("submit actions")[0].getElementsByTagName("input");
-/*const submit = document.getElementsByName("commit")[1];
-submit.onclick = function(){
-    console.log("hello");
-    if (document.getElementById(COMP_ID[1]).checked = "checked")
+document.getElementById("filter").onclick = function(){
+    return filter_completion();
+}
+
+console.log(document.getElementById("filter").onclick);
+
+function filter_completion(){
+    console.log(document.getElementById(COMP_ID[1]).checked);
+    if (document.getElementById(COMP_ID[1]).checked)
         return bookmarkEffect(0);
-    else if (document.getElementById(COMP_ID[2]).checked = "checked"){
-        console.log("hey");
+    else if (document.getElementById(COMP_ID[2]).checked){
         return bookmarkEffect(1);
     }
 }
-*/
