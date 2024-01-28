@@ -17,8 +17,14 @@
     "default_title": "A03 Enhanced",
     "default_popup": "ao3enhanced.html"
   },
-  "content_scripts": [{
+  "content_scripts": [
+    {
     "matches": ["https://archiveofourown.org/users/*"],
     "js": ["content-script.js"]
-  }]
+    },
+    {
+      "matches": ["https://archiveofourown.org/works/*"],
+      "js": ["check_tw.js"]
+    }
+    ]
 }
