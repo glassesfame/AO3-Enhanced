@@ -1,10 +1,18 @@
 console.log("Trigger Warnings")
 const twButton = document.createElement("button"); 
+const ul = document.getElementsByClassName("work navigation actions")[0];
+const twResult = document.createElement("p");
+
 twButton.id = "tw-button";
 twButton.innerText = "Check for Trigger Warnings";
-document.body.appendChild(twButton);
+twResult.id = "tw-result";
+twResult.innerText = "";
+
+ul.appendChild(twButton);
+ul.appendChild(twResult);
+//document.body.appendChild(twButton);
 //const twButton = document.getElementById("tw-button");
-twButton.onclick = function(){
+document.getElementById("tw-button").onclick = function(){
     return findTW();
 }
 
