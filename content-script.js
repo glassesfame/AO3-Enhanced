@@ -1,6 +1,7 @@
 console.log("Content script is running on this page.");
 
 function bookmarkEffect(boole) {
+    
     const bookmarks = document.getElementsByClassName("bookmark index group")[0]; // take the first index from the element
     let bookmarkList = bookmarks.querySelectorAll('[role="article"]'); // this gives us a list of bookmarks
     for (let bookmark of bookmarkList) {
@@ -10,14 +11,15 @@ function bookmarkEffect(boole) {
         //1 = complete 0 = incomplete because of the list length 
         if (complete.length == boole) {
             bookmark.remove();
-        };
-    };
-};
+        }
+    }
+}
+
 const dl = document.getElementsByClassName("more group")[0].getElementsByTagName("dl")[0];
 const dt = document.createElement("dt");
 //dt.id = "toggle_work_complete";
 //dt.class = "filter-toggle status expanded";
-dt.setAttribute("id","toggle_work_complete")
+dt.setAttribute("id","toggle_work_complete");
 //dt.setAttribute("class","filter-toggle status collapsed")
 
 const complete = document.createElement("button"); 
@@ -29,10 +31,10 @@ dt.appendChild(complete);
 dl.appendChild(dt);
 document.getElementById("complete").setAttribute("class","expander");
 
-const COMP_TYPE = ["All works", "Complete works only", "Works in progress only"];
-const COMP_VAL = ["","T","F"];
-const COMP_ID = ["work_search_complete_", "work_search_complete_t", "work_search_complete_f"];
-const COMP_CLICK = []
+const COMP_TYPE = ["Complete works only", "Works in progress only"];
+const COMP_VAL = ["T","F"];
+const COMP_ID = ["work_search_complete_t", "work_search_complete_f"];
+const COMP_CLICK = [];
 
 const ul = document.createElement("ul");
 
@@ -46,7 +48,7 @@ for (var i=0; i<COMP_TYPE.length; i++){
     let input = document.createElement("input");
     input.type = "radio";
     input.value = COMP_VAL[i];
-    input.name = COMP_ID[i];
+    input.name = COMP_ID[0];
     input.id = COMP_ID[i];
 
     const span = document.createElement("span");
@@ -64,13 +66,14 @@ for (var i=0; i<COMP_TYPE.length; i++){
 }
 
 const dd = document.createElement("dd");
-dd.setAttribute( "work_complete","expandable")
+dd.setAttribute( "work_complete","expandable");
 dd.appendChild(ul);
 
 const filter = document.createElement("button"); 
 filter.id = "filter";
 filter.innerText = "Filter for Completion";
 filter.type = "button";
+//filter.onclick = 'history.go(0)';
 
 dl.appendChild(dd);
 dl.appendChild(filter);
@@ -82,10 +85,10 @@ document.getElementById("filter").onclick = function(){
 console.log(document.getElementById("filter").onclick);
 
 function filter_completion(){
-    console.log(document.getElementById(COMP_ID[1]).checked);
-    if (document.getElementById(COMP_ID[1]).checked)
+    console.log(document.getElementById(COMP_ID[0]).checked);
+    if (document.getElementById(COMP_ID[0]).checked)
         return bookmarkEffect(0);
-    else if (document.getElementById(COMP_ID[2]).checked){
+    else if (document.getElementById(COMP_ID[1]).checked){
         return bookmarkEffect(1);
     }
 }
