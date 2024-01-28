@@ -50,7 +50,7 @@ function findTW(){
                 if (popup.innerText == "No TW found!") {
                     popup.innerText = "";
                 }
-                popup.innerText += text;
+                popup.innerText += text +  "\n";
             }
         }
     }
